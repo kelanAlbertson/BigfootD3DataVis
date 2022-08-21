@@ -1,0 +1,111 @@
+<!-- CS6017 HW 7 - Jon Hughes and Kelan Albertson -->
+
+<!-- 
+    You will need to download bfro_clean.json from 
+    cs.utah.edu/~jhughes/bfro_clean.json           
+-->
+
+<!-- 
+    Additional file: us.json (included with these files)
+    required to display US map
+ -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://d3js.org/d3.v4.min.js" charset="utf-8"></script>
+    <script src="https://d3js.org/topojson.v1.min.js"></script>
+</head>
+
+<body>
+    <main class="container">
+
+        <section class="headerBox vflex">
+            <div class="header">
+                <div class="headerText">BFRO Bigfoot Sighting Data</div>
+                <div class="subheader" id="sightingTitle">---</div>
+            </div>
+            <div class="filterBox">
+                <div class="filterText">Classification:</div>
+                <div class="filterCheckboxes">
+                    <span class="checkboxes" id="classification">
+
+                        <label class="checkContainer">
+                            <span class="tooltip">
+                                Class A
+                                <span class="tooltiptext">Clear sightings in circumstances where misinterpretation or misidentification of other animals can be ruled out with greater confidence</span>
+                            </span>
+                            <input type="checkbox" id="classACheckbox" onclick="updatePoints()" checked>
+                            <span class="checkmark checkmarkA"></span>
+                        </label>
+                        <label class="checkContainer">
+                            <span class="tooltip">
+                                Class B
+                                <span class="tooltiptext">Possible sasquatch was observed at a great distance or in poor lighting conditions and incidents in any other circumstance that did not afford a clear view of the subject</span>
+                            </span>
+                            <input type="checkbox" id="classBCheckbox" onclick="updatePoints()" checked>
+                            <span class="checkmark checkmarkB"></span>
+                        </label>
+                        <label class="checkContainer">
+                            <span class="tooltip">
+                                Class C
+                                <span class="tooltiptext">Most second-hand reports, and any third-hand reports, or stories with an untraceable sources</span>
+                            </span>
+                            <input type="checkbox" id="classCCheckbox" onclick="updatePoints()" checked>
+                            <span class="checkmark checkmarkC"></span>
+                        </label>
+
+                    </span>
+                </div>
+            </div>
+        </section>
+
+        <section class="infoBox">
+            <div class="sightingTitle">
+                <div class="sightingTitleText" id="storyTitle"></div>
+            </div>
+
+            <div class="infoData">
+                <div class="infoClass flex">
+                    <div class="infoLabel">Class:</div>
+                    <div class="info" id="classLetter"></div>
+                </div>
+                <div class="infoDate flex">
+                    <div class="infoLabel">Date:</div>
+                    <div class="info" id="date"></div>
+                </div>
+                <div class="infoState flex">
+                    <div class="infoLabel">State:</div>
+                    <div class="info" id="state"></div>
+                </div>
+                <div class="infoCounty flex">
+                    <div class="infoLabel">County:</div>
+                    <div class="info" id="county"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mapBox">
+            <div id="map"></div>
+        </section>
+
+        <section class="timelineBox">
+            <div class="timelineInfo" id="timelineInfo"></div>
+            <div id="timeline"></div>
+        </section>
+
+        <section class="sideBox">
+            <div class="storyCenter" id="storyCoords"></div>
+            <div class="storyElement storyCenter" id="storyWeather"></div>
+            <div class="storyElement" id="storyText"></div>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
